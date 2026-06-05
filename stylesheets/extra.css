@@ -1,12 +1,35 @@
 .mantra {
-    color: #bf360c;
-    font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 2.2;
+    color: #3e2723;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 2.1;
     text-align: center;
-    padding: 1rem;
-    border-left: 4px solid #ff9800;
-    background-color: rgba(255,152,0,0.08);
-    border-radius: 6px;
+    padding: 0.8rem;
+    background-color: #faf7f2;
+    border-left: 4px solid #8d6e63;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+}
+
+.translation {
+    color: #37474f;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    font-style: italic;
+    padding: 0.8rem 1rem;
+    background-color: #f5f7f8;
+    border-left: 4px solid #90a4ae;
+    border-radius: 4px;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.bhasya {
+    color: #2f2f2f;
+    font-size: 1.08rem;
+    line-height: 2;
+    padding: 1rem 1.2rem;
+    background-color: #fcfbf7;
+    border-left: 4px solid #6d4c41;
+    border-radius: 4px;
     margin: 1.5rem 0;
 }
