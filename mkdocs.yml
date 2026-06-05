@@ -4,6 +4,30 @@ theme:
   name: material
   language: en
 
+  font:
+    text: Noto Serif
+    code: JetBrains Mono
+
+  features:
+    - navigation.expand
+    - navigation.sections
+    - search.highlight
+
+  palette:
+    - scheme: default
+      primary: deep orange
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+
+    - scheme: slate
+      primary: deep orange
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+
 nav:
   - Home: index.md
 
