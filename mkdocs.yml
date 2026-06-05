@@ -1,0 +1,43 @@
+site_name: Vedanta
+
+theme:
+  name: material
+  language: en
+
+nav:
+  - Home: index.md
+
+  - Upanishads:
+
+      - Katha Bhashyam:
+          - Overview: upanishads/katha-bhashyam/index.md
+
+          - Adhyaya 1:
+              - Overview: upanishads/katha-bhashyam/1-adhyaya/index.md
+              - Valli 1: upanishads/katha-bhashyam/1-adhyaya/1-valli/index.md
+              - Valli 2: upanishads/katha-bhashyam/1-adhyaya/2-valli/index.md
+              - Valli 3: upanishads/katha-bhashyam/1-adhyaya/3-valli/index.md
+
+          - Adhyaya 2:
+              - Overview: upanishads/katha-bhashyam/2-adhyaya/index.md
+              - Valli 1: upanishads/katha-bhashyam/2-adhyaya/1-valli/index.md
+              - Valli 2: upanishads/katha-bhashyam/2-adhyaya/2-valli/index.md
+              - Valli 3: upanishads/katha-bhashyam/2-adhyaya/3-valli/index.md
+
+      - Mundaka Bhashyam:
+          - Overview: upanishads/mundaka-bhashyam/index.md
+
+          - Mundakam 1:
+              - Overview: upanishads/mundaka-bhashyam/1-mundakam/index.md
+              - Khanda 1: upanishads/mundaka-bhashyam/1-mundakam/1-khanda/index.md
+              - Khanda 2: upanishads/mundaka-bhashyam/1-mundakam/2-khanda/index.md
+
+          - Mundakam 2:
+              - Overview: upanishads/mundaka-bhashyam/2-mundakam/index.md
+              - Khanda 1: upanishads/mundaka-bhashyam/2-mundakam/1-khanda/index.md
+              - Khanda 2: upanishads/mundaka-bhashyam/2-mundakam/2-khanda/index.md
+
+          - Mundakam 3:
+              - Overview: upanishads/mundaka-bhashyam/3-mundakam/index.md
+              - Khanda 1: upanishads/mundaka-bhashyam/3-mundakam/1-khanda/index.md
+              - Khanda 2: upanishads/mundaka-bhashyam/3-mundakam/2-khanda/index.md
