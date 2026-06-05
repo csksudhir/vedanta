@@ -3,7 +3,7 @@
     font-weight: 700;
     font-size: 0.95rem;
     line-height: 1.8;
-    text-align: center;
+    text-align: left;
     padding: 0.6rem;
     background-color: #faf7f2;
     border-left: 4px solid #8d6e63;
@@ -15,6 +15,7 @@
     color: #37474f;
     font-size: 0.90rem;
     line-height: 1.7;
+    text-align: left;
     padding: 0.6rem 0.8rem;
     background-color: #f5f7f8;
     border-left: 4px solid #90a4ae;
@@ -24,8 +25,10 @@
 
 .bhasya {
     color: #2f2f2f;
+    font-weight: 500;
     font-size: 0.95rem;
     line-height: 1.8;
+    text-align: left;
     padding: 0.8rem 1rem;
     background-color: #fcfbf7;
     border-left: 4px solid #6d4c41;
