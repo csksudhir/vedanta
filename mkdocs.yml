@@ -9,7 +9,6 @@ theme:
     code: JetBrains Mono
 
   features:
-    - navigation.expand
     - navigation.sections
     - search.highlight
 
@@ -30,6 +29,10 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+
+validation:
+  nav:
+    omitted_files: ignore
 
 nav:
   - Home: index.md
