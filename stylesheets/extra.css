@@ -1,60 +1,419 @@
-.mantra {
-    color: #3e2723;
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 1.5;
-    text-align: left !important;
-    padding: 0.3rem 0.6rem;
-    background-color: #faf7f2;
-    border-left: 4px solid #8d6e63;
-    border-radius: 4px;
-    margin: 0.5rem 0;
+/*
+=========================================================
+VEDANTA CLASSICAL THEME
+MkDocs Material
+=========================================================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Kannada:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;500&family=Crimson+Pro:wght@400;500;600;700&display=swap');
+
+:root {
+
+  /* parchment */
+
+  --paper:        #faf7f0;
+  --paper-dark:   #f1ebdf;
+  --paper-alt:    #fffdf9;
+
+  --border:       #d9cfbf;
+  --border-soft:  #ebe5d8;
+
+  --text:         #2f2920;
+  --text-muted:   #6d6458;
+
+  /* section colors */
+
+  --mula:         #b45309;
+  --mula-bg:      #fff7ec;
+
+  --bhashya:      #1e40af;
+  --bhashya-bg:   #f5f8ff;
+
+  --tika:         #166534;
+  --tika-bg:      #f4fbf5;
+
+  --anvaya:       #6d28d9;
+  --anvaya-bg:    #faf7ff;
+
+  --shadow:       0 2px 12px rgba(0,0,0,.04);
+
+  --sanskrit-size: 1.25rem;
+  --prose-size: 1.05rem;
 }
 
-.translation {
-    color: #263238;
-    font-size: 0.90rem;
-    font-weight: 400;
-    line-height: 1.65;
-    text-align: left;
-    padding: 0.4rem 0.7rem;
-    background-color: #f5f7f8;
-    border-left: 3px solid #90a4ae;
-    border-radius: 4px;
-    margin: 0.5rem 0;
+/* =====================================================
+   PAGE
+   ===================================================== */
+
+.md-grid {
+  max-width: 1500px;
 }
 
-.bhasya {
-    color: #1f1f1f;
-    font-size: 0.92rem;
-    font-weight: 400;
-    line-height: 1.75;
-    text-align: left;
-    padding: 0.5rem 0.8rem;
-    background-color: #fcfbf7;
-    border-left: 3px solid #6d4c41;
-    border-radius: 4px;
-    margin: 0.6rem 0;
+.md-main {
+  background:
+      radial-gradient(
+          circle at top left,
+          #fffdf8,
+          var(--paper)
+      );
 }
 
-.phrase {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #2c1810;
-    margin-top: 0.6rem;
-    margin-bottom: 0.2rem;
+.md-content {
+  background: transparent;
 }
 
-.md-typeset p {
-    margin: 0.3em 0;
+/* =====================================================
+   BODY
+   ===================================================== */
+
+.md-typeset {
+  color: var(--text);
 }
 
-.md-typeset ul,
-.md-typeset ol {
-    margin-top: 0.2em;
-    margin-bottom: 0.4em;
-}
-
+.md-typeset p,
 .md-typeset li {
-    margin-bottom: 0.1em;
+  font-family: "Crimson Pro", Georgia, serif;
+  font-size: var(--prose-size);
+  line-height: 1.9;
+}
+
+/* =====================================================
+   TITLE
+   ===================================================== */
+
+.md-typeset h1 {
+
+  font-family: "Noto Serif Kannada", serif;
+
+  text-align: center;
+
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: var(--text);
+
+  border: none;
+
+  margin-bottom: .2rem;
+}
+
+.md-typeset h1::after {
+
+  content: "❈ ❈ ❈";
+
+  display: block;
+
+  font-size: .8rem;
+
+  color: #b89b6d;
+
+  margin-top: .7rem;
+}
+
+.md-typeset h1 + h1 {
+
+  text-align: center;
+
+  font-family: "Crimson Pro", serif;
+
+  font-style: italic;
+
+  font-size: 1.1rem;
+
+  color: var(--text-muted);
+
+  margin-top: -.5rem;
+}
+
+/* =====================================================
+   SECTION HEADINGS
+   ===================================================== */
+
+.md-typeset h2 {
+
+  font-size: .75rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: .16em;
+
+  padding: .7rem 1rem;
+
+  border-radius: 8px;
+
+  margin-top: 3rem;
+
+  margin-bottom: 1rem;
+
+  border: none;
+}
+
+/*
+Use:
+
+## Mūla
+## Bhāṣya
+## Ṭīkā
+*/
+
+.md-typeset h2:nth-of-type(1) {
+  background: var(--mula-bg);
+  color: var(--mula);
+  border-left: 5px solid var(--mula);
+}
+
+.md-typeset h2:nth-of-type(2) {
+  background: var(--bhashya-bg);
+  color: var(--bhashya);
+  border-left: 5px solid var(--bhashya);
+}
+
+.md-typeset h2:nth-of-type(3) {
+  background: var(--tika-bg);
+  color: var(--tika);
+  border-left: 5px solid var(--tika);
+}
+
+/* =====================================================
+   H3
+   ===================================================== */
+
+.md-typeset h3 {
+
+  font-size: .8rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: .12em;
+
+  color: var(--text-muted);
+
+  border-bottom: 1px solid var(--border);
+
+  padding-bottom: .3rem;
+
+  margin-top: 2rem;
+}
+
+/* =====================================================
+   SANSKRIT TEXT
+   ===================================================== */
+
+.md-typeset blockquote {
+
+  background: linear-gradient(
+      to right,
+      #fff8ef,
+      #fffdf8
+  );
+
+  border-left: 6px solid var(--mula);
+
+  border-radius: 10px;
+
+  padding: 1.25rem 1.5rem;
+
+  box-shadow: var(--shadow);
+
+  margin: 1.25rem 0;
+
+  font-style: normal;
+}
+
+.md-typeset blockquote::before {
+
+  content: "॥";
+
+  display: block;
+
+  color: var(--mula);
+
+  font-size: 1.4rem;
+
+  margin-bottom: .6rem;
+}
+
+.md-typeset blockquote p {
+
+  font-family:
+      "Noto Serif Kannada",
+      serif;
+
+  font-size: var(--sanskrit-size);
+
+  line-height: 2.25;
+
+  color: var(--text);
+
+  font-style: normal;
+
+  letter-spacing: .01em;
+}
+
+/* =====================================================
+   ANVAYA
+   ===================================================== */
+
+.md-typeset h4 {
+
+  color: var(--anvaya);
+
+  border-bottom: 1px dashed #b7a0ef;
+
+  padding-bottom: .25rem;
+}
+
+.md-typeset h4 + blockquote {
+
+  background: var(--anvaya-bg);
+
+  border-left-color: var(--anvaya);
+}
+
+/* =====================================================
+   WORD TO WORD
+   ===================================================== */
+
+.md-typeset p.w2w {
+
+  font-family:
+      "Noto Sans Kannada",
+      serif;
+
+  background: #f8f5ef;
+
+  border: 1px solid var(--border-soft);
+
+  border-left: 4px solid #bca989;
+
+  border-radius: 6px;
+
+  padding: .75rem 1rem;
+
+  margin: .4rem 0;
+
+  line-height: 2.1;
+
+  font-size: .95rem;
+}
+
+/* =====================================================
+   TABLES
+   ===================================================== */
+
+.md-typeset table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: white;
+
+  box-shadow: var(--shadow);
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.md-typeset thead {
+
+  background:
+      linear-gradient(
+          to right,
+          #f3e8d2,
+          #faf6ee
+      );
+}
+
+.md-typeset th {
+
+  text-transform: uppercase;
+
+  letter-spacing: .08em;
+
+  font-size: .72rem;
+}
+
+.md-typeset td,
+.md-typeset th {
+
+  padding: .9rem 1rem;
+}
+
+.md-typeset tbody tr:nth-child(even) {
+
+  background: #faf9f6;
+}
+
+/* =====================================================
+   LISTS
+   ===================================================== */
+
+.md-typeset ol,
+.md-typeset ul {
+
+  padding-left: 1.4rem;
+}
+
+/* =====================================================
+   ADMONITIONS
+   ===================================================== */
+
+.md-typeset .admonition {
+
+  border-radius: 10px;
+
+  box-shadow: var(--shadow);
+}
+
+/* =====================================================
+   HR
+   ===================================================== */
+
+.md-typeset hr {
+
+  border-color: var(--border);
+
+  margin: 3rem 0;
+}
+
+/* =====================================================
+   LINKS
+   ===================================================== */
+
+.md-typeset a {
+
+  color: #8c4b00;
+
+  text-decoration-thickness: 1px;
+}
+
+.md-typeset a:hover {
+
+  color: #b45309;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+  :root {
+
+    --sanskrit-size: 1.05rem;
+    --prose-size: 1rem;
+  }
+
+  .md-typeset blockquote {
+
+    padding: 1rem;
+  }
+
+  .md-typeset table {
+
+    display: block;
+    overflow-x: auto;
+  }
 }
