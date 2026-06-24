@@ -411,6 +411,27 @@
 }
 
 /* ─────────────────────────────────────────────
+   LAYOUT WIDTH
+   ───────────────────────────────────────────── */
+
+.md-grid {
+  max-width: 1600px !important;
+}
+
+.md-content {
+  max-width: none !important;
+}
+
+.md-content__inner {
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.md-typeset {
+  max-width: none !important;
+}
+
+/* ─────────────────────────────────────────────
    RESPONSIVE
    ───────────────────────────────────────────── */
 
