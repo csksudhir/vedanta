@@ -1,419 +1,463 @@
 /*
-=========================================================
-VEDANTA CLASSICAL THEME
-MkDocs Material
-=========================================================
-*/
+ * extra.css — Vedānta Study Site
+ * MkDocs Material theme override
+ *
+ * Paste this into: docs/stylesheets/extra.css
+ * Confirm mkdocs.yml has:
+ *   extra_css:
+ *     - stylesheets/extra.css
+ *
+ * Covers:
+ *   - Praśna / Kaṭha / Muṇḍaka Bhāṣya study files
+ *   - Mūla · Bhāṣya · Ṭīkā three-layer format
+ *   - Blockquotes (Sanskrit text), word-to-word paragraphs,
+ *     overall translation, anvaya, summary table
+ */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Kannada:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;500&family=Crimson+Pro:wght@400;500;600;700&display=swap');
+/* ─────────────────────────────────────────────
+   FONTS
+   ───────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Kannada:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;500&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+
+/*
+ * Noto Serif Kannada — Sanskrit / Kannada script in blockquotes
+ * Noto Sans Kannada  — Sanskrit in word-to-word paragraphs
+ * Crimson Pro        — English prose (translations, notes)
+ * Body headings remain Material's default (Roboto / system-ui)
+ */
+
+/* ─────────────────────────────────────────────
+   COLOUR TOKENS
+   ───────────────────────────────────────────── */
 
 :root {
+  --vu-bg:             #faf8f4;
+  --vu-surface:        #f2ede3;
+  --vu-border:         #d6cbb8;
+  --vu-border-light:   #e8e0d0;
 
-  /* parchment */
+  /* Mūla — saffron */
+  --vu-mula:           #7b3f00;
+  --vu-mula-bg:        #fff8f0;
+  --vu-mula-border:    #c8763a;
 
-  --paper:        #faf7f0;
-  --paper-dark:   #f1ebdf;
-  --paper-alt:    #fffdf9;
+  /* Bhāṣya — indigo */
+  --vu-bhashya:        #1a3a5c;
+  --vu-bhashya-bg:     #f0f4fa;
+  --vu-bhashya-border: #4a7ab5;
 
-  --border:       #d9cfbf;
-  --border-soft:  #ebe5d8;
+  /* Ṭīkā — forest green */
+  --vu-tika:           #2d5a2d;
+  --vu-tika-bg:        #f0f6f0;
+  --vu-tika-border:    #5a9a5a;
 
-  --text:         #2f2920;
-  --text-muted:   #6d6458;
+  /* Anvaya — purple */
+  --vu-anvaya:         #4a3060;
+  --vu-anvaya-bg:      #f5f0fa;
+  --vu-anvaya-border:  #9a7abf;
 
-  /* section colors */
+  /* Text */
+  --vu-text:           #2c2416;
+  --vu-text-muted:     #6b5d48;
+  --vu-text-label:     #8a7560;
 
-  --mula:         #b45309;
-  --mula-bg:      #fff7ec;
-
-  --bhashya:      #1e40af;
-  --bhashya-bg:   #f5f8ff;
-
-  --tika:         #166534;
-  --tika-bg:      #f4fbf5;
-
-  --anvaya:       #6d28d9;
-  --anvaya-bg:    #faf7ff;
-
-  --shadow:       0 2px 12px rgba(0,0,0,.04);
-
-  --sanskrit-size: 1.25rem;
-  --prose-size: 1.05rem;
+  /* Sanskrit sizing */
+  --vu-sanskrit-size:  1.1rem;
+  --vu-sanskrit-lh:    2.2;
+  --vu-w2w-size:       0.92rem;
+  --vu-w2w-lh:         2.0;
+  --vu-prose-size:     1.05rem;
+  --vu-prose-lh:       1.85;
 }
 
-/* =====================================================
-   PAGE
-   ===================================================== */
+/* ─────────────────────────────────────────────
+   PAGE BACKGROUND
+   ───────────────────────────────────────────── */
 
-.md-grid {
-  max-width: 1500px;
-}
-
+/* Warm the Material page background slightly */
 .md-main {
-  background:
-      radial-gradient(
-          circle at top left,
-          #fffdf8,
-          var(--paper)
-      );
+  background-color: var(--vu-bg);
 }
 
 .md-content {
-  background: transparent;
+  background-color: var(--vu-bg);
 }
 
-/* =====================================================
-   BODY
-   ===================================================== */
-
-.md-typeset {
-  color: var(--text);
-}
-
-.md-typeset p,
-.md-typeset li {
-  font-family: "Crimson Pro", Georgia, serif;
-  font-size: var(--prose-size);
-  line-height: 1.9;
-}
-
-/* =====================================================
-   TITLE
-   ===================================================== */
+/* ─────────────────────────────────────────────
+   H1 — File title (dual Kannada + Roman lines)
+   ───────────────────────────────────────────── */
 
 .md-typeset h1 {
-
-  font-family: "Noto Serif Kannada", serif;
-
-  text-align: center;
-
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
-
-  color: var(--text);
-
-  border: none;
-
-  margin-bottom: .2rem;
+  color: var(--vu-text);
+  border-bottom: 2px solid var(--vu-border);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.2rem;
+  line-height: 1.4;
+  font-family: 'Noto Serif Kannada', serif;
 }
 
-.md-typeset h1::after {
-
-  content: "❈ ❈ ❈";
-
-  display: block;
-
-  font-size: .8rem;
-
-  color: #b89b6d;
-
-  margin-top: .7rem;
-}
-
+/* Second h1 (Roman transliteration subtitle) */
 .md-typeset h1 + h1 {
-
-  text-align: center;
-
-  font-family: "Crimson Pro", serif;
-
-  font-style: italic;
-
   font-size: 1.1rem;
-
-  color: var(--text-muted);
-
-  margin-top: -.5rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--vu-text-muted);
+  border-bottom: none;
+  margin-top: -0.8rem;
+  padding-bottom: 0;
+  font-family: 'Crimson Pro', Georgia, serif;
 }
 
-/* =====================================================
-   SECTION HEADINGS
-   ===================================================== */
+/* ─────────────────────────────────────────────
+   H2 — Section headers: Mūla / Bhāṣya / Ṭīkā
+   ───────────────────────────────────────────── */
 
 .md-typeset h2 {
-
-  font-size: .75rem;
-
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  border-left: 5px solid var(--vu-border);
+  background: var(--vu-surface);
+  color: var(--vu-text-label);
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+  /* Remove Material's default bottom border */
+  border-bottom: none !important;
+}
 
-  letter-spacing: .16em;
+/* ─────────────────────────────────────────────
+   H3 — Sub-section labels
+   (Overall Translation, Word-to-Word, Anvaya)
+   ───────────────────────────────────────────── */
 
-  padding: .7rem 1rem;
+.md-typeset h3 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--vu-text-label);
+  margin-top: 1.6rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--vu-border-light);
+  padding-bottom: 0.25rem;
+}
 
-  border-radius: 8px;
+/* ─────────────────────────────────────────────
+   H4 — Anvaya sentence headings
+   ───────────────────────────────────────────── */
 
-  margin-top: 3rem;
+.md-typeset h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vu-anvaya);
+  border-bottom: 1px dotted var(--vu-anvaya-border);
+  padding-bottom: 0.15rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.5rem;
+}
 
-  margin-bottom: 1rem;
+/* ─────────────────────────────────────────────
+   BLOCKQUOTES — Sanskrit text passages
+   ───────────────────────────────────────────── */
 
-  border: none;
+.md-typeset blockquote {
+  font-family: 'Noto Serif Kannada', serif !important;
+  font-size: var(--vu-sanskrit-size) !important;
+  line-height: var(--vu-sanskrit-lh) !important;
+  color: var(--vu-text) !important;
+
+  margin: 1rem 0 !important;
+  padding: 1rem 1.4rem !important;
+
+  background: var(--vu-mula-bg) !important;
+  border-left: 5px solid var(--vu-mula-border) !important;
+  border-radius: 0 6px 6px 0 !important;
+
+  /* Remove Material's default italic */
+  font-style: normal !important;
+}
+
+/* Each sentence is a <p> inside the blockquote */
+.md-typeset blockquote p {
+  font-family: 'Noto Serif Kannada', serif !important;
+  font-size: var(--vu-sanskrit-size) !important;
+  line-height: var(--vu-sanskrit-lh) !important;
+  font-style: normal !important;
+  color: var(--vu-text) !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.md-typeset blockquote p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Source metadata blockquote — first blockquote in file, smaller */
+.md-typeset > blockquote:first-of-type {
+  font-family: inherit !important;
+  font-size: 0.82rem !important;
+  line-height: 1.6 !important;
+  color: var(--vu-text-muted) !important;
+  background: transparent !important;
+  border-left: 3px solid var(--vu-border) !important;
+  border-radius: 0 !important;
+  padding: 0.4rem 0.9rem !important;
+}
+
+.md-typeset > blockquote:first-of-type p {
+  font-family: inherit !important;
+  font-size: 0.82rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Anvaya blockquotes — purple */
+.md-typeset h4 + p + blockquote,
+.md-typeset h4 ~ blockquote {
+  border-left-color: var(--vu-anvaya-border) !important;
+  background: var(--vu-anvaya-bg) !important;
+}
+
+/* ─────────────────────────────────────────────
+   WORD-TO-WORD PARAGRAPHS
+   Plain <p> elements after ### Word-to-Word
+   Each paragraph = one sentence ending in । or ॥
+   ───────────────────────────────────────────── */
+
+/*
+ * MkDocs renders these as plain <p> tags.
+ * We target paragraphs that contain the · separator character
+ * which is unique to word-to-word lines.
+ * This avoids disturbing other prose paragraphs.
+ */
+
+/* All paragraphs in the content area default to prose */
+.md-typeset p {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: var(--vu-prose-size);
+  line-height: var(--vu-prose-lh);
+  color: var(--vu-text);
 }
 
 /*
-Use:
-
-## Mūla
-## Bhāṣya
-## Ṭīkā
-*/
-
-.md-typeset h2:nth-of-type(1) {
-  background: var(--mula-bg);
-  color: var(--mula);
-  border-left: 5px solid var(--mula);
-}
-
-.md-typeset h2:nth-of-type(2) {
-  background: var(--bhashya-bg);
-  color: var(--bhashya);
-  border-left: 5px solid var(--bhashya);
-}
-
-.md-typeset h2:nth-of-type(3) {
-  background: var(--tika-bg);
-  color: var(--tika);
-  border-left: 5px solid var(--tika);
-}
-
-/* =====================================================
-   H3
-   ===================================================== */
-
-.md-typeset h3 {
-
-  font-size: .8rem;
-
-  text-transform: uppercase;
-
-  letter-spacing: .12em;
-
-  color: var(--text-muted);
-
-  border-bottom: 1px solid var(--border);
-
-  padding-bottom: .3rem;
-
-  margin-top: 2rem;
-}
-
-/* =====================================================
-   SANSKRIT TEXT
-   ===================================================== */
-
-.md-typeset blockquote {
-
-  background: linear-gradient(
-      to right,
-      #fff8ef,
-      #fffdf8
-  );
-
-  border-left: 6px solid var(--mula);
-
-  border-radius: 10px;
-
-  padding: 1.25rem 1.5rem;
-
-  box-shadow: var(--shadow);
-
-  margin: 1.25rem 0;
-
-  font-style: normal;
-}
-
-.md-typeset blockquote::before {
-
-  content: "॥";
-
-  display: block;
-
-  color: var(--mula);
-
-  font-size: 1.4rem;
-
-  margin-bottom: .6rem;
-}
-
-.md-typeset blockquote p {
-
-  font-family:
-      "Noto Serif Kannada",
-      serif;
-
-  font-size: var(--sanskrit-size);
-
-  line-height: 2.25;
-
-  color: var(--text);
-
-  font-style: normal;
-
-  letter-spacing: .01em;
-}
-
-/* =====================================================
-   ANVAYA
-   ===================================================== */
-
-.md-typeset h4 {
-
-  color: var(--anvaya);
-
-  border-bottom: 1px dashed #b7a0ef;
-
-  padding-bottom: .25rem;
-}
-
-.md-typeset h4 + blockquote {
-
-  background: var(--anvaya-bg);
-
-  border-left-color: var(--anvaya);
-}
-
-/* =====================================================
-   WORD TO WORD
-   ===================================================== */
+ * Word-to-word paragraphs contain · and — characters
+ * and end with । or ॥
+ * We use a data attribute added by a small JS snippet below,
+ * OR you can manually add {: .w2w} after each paragraph in Markdown.
+ * See the JS section at the bottom of this file.
+ */
 
 .md-typeset p.w2w {
+  font-family: 'Noto Sans Kannada', 'Noto Serif Kannada', serif;
+  font-size: var(--vu-w2w-size);
+  line-height: var(--vu-w2w-lh);
+  color: var(--vu-text);
 
-  font-family:
-      "Noto Sans Kannada",
-      serif;
+  background: var(--vu-surface);
+  border: 1px solid var(--vu-border-light);
+  border-left: 3px solid var(--vu-border);
+  border-radius: 4px;
 
-  background: #f8f5ef;
-
-  border: 1px solid var(--border-soft);
-
-  border-left: 4px solid #bca989;
-
-  border-radius: 6px;
-
-  padding: .75rem 1rem;
-
-  margin: .4rem 0;
-
-  line-height: 2.1;
-
-  font-size: .95rem;
+  padding: 0.55rem 0.9rem;
+  margin: 0.3rem 0 !important;
 }
 
-/* =====================================================
-   TABLES
-   ===================================================== */
-
-.md-typeset table {
-
-  width: 100%;
-
-  border-collapse: collapse;
-
-  background: white;
-
-  box-shadow: var(--shadow);
-
-  border-radius: 10px;
-
-  overflow: hidden;
-}
-
-.md-typeset thead {
-
-  background:
-      linear-gradient(
-          to right,
-          #f3e8d2,
-          #faf6ee
-      );
-}
-
-.md-typeset th {
-
-  text-transform: uppercase;
-
-  letter-spacing: .08em;
-
-  font-size: .72rem;
-}
-
-.md-typeset td,
-.md-typeset th {
-
-  padding: .9rem 1rem;
-}
-
-.md-typeset tbody tr:nth-child(even) {
-
-  background: #faf9f6;
-}
-
-/* =====================================================
-   LISTS
-   ===================================================== */
-
-.md-typeset ol,
-.md-typeset ul {
-
-  padding-left: 1.4rem;
-}
-
-/* =====================================================
-   ADMONITIONS
-   ===================================================== */
-
-.md-typeset .admonition {
-
-  border-radius: 10px;
-
-  box-shadow: var(--shadow);
-}
-
-/* =====================================================
-   HR
-   ===================================================== */
+/* ─────────────────────────────────────────────
+   HORIZONTAL RULES
+   ───────────────────────────────────────────── */
 
 .md-typeset hr {
-
-  border-color: var(--border);
-
-  margin: 3rem 0;
+  border-color: var(--vu-border);
+  margin: 2.5rem 0;
 }
 
-/* =====================================================
-   LINKS
-   ===================================================== */
+/* ─────────────────────────────────────────────
+   SUMMARY TABLE
+   ───────────────────────────────────────────── */
 
-.md-typeset a {
-
-  color: #8c4b00;
-
-  text-decoration-thickness: 1px;
+.md-typeset table {
+  font-size: 0.85rem;
+  border: 1px solid var(--vu-border);
+  border-radius: 6px;
+  overflow: hidden;
+  width: 100%;
 }
 
-.md-typeset a:hover {
-
-  color: #b45309;
+.md-typeset table thead {
+  background: var(--vu-surface);
 }
 
-/* =====================================================
-   MOBILE
-   ===================================================== */
+.md-typeset table thead tr th {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--vu-text-label);
+  padding: 0.6rem 1rem;
+  border-bottom: 2px solid var(--vu-border);
+}
 
-@media (max-width: 700px) {
+.md-typeset table tbody tr {
+  border-bottom: 1px solid var(--vu-border-light);
+}
 
-  :root {
+.md-typeset table tbody tr:last-child {
+  border-bottom: none;
+}
 
-    --sanskrit-size: 1.05rem;
-    --prose-size: 1rem;
+.md-typeset table tbody tr:nth-child(odd) {
+  background: var(--vu-bg);
+}
+
+.md-typeset table tbody tr:nth-child(even) {
+  background: var(--vu-surface);
+}
+
+.md-typeset table tbody tr td {
+  padding: 0.7rem 1rem;
+  vertical-align: top;
+  line-height: 1.6;
+  color: var(--vu-text);
+  border: none;
+}
+
+/* First column — Mūla / Bhāṣya / Ṭīkā names */
+.md-typeset table tbody tr td:first-child {
+  font-family: 'Noto Serif Kannada', serif;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--vu-text);
+}
+
+/* Second column — Author, italic */
+.md-typeset table tbody tr td:nth-child(2) {
+  font-style: italic;
+  color: var(--vu-text-muted);
+  white-space: nowrap;
+}
+
+/* ─────────────────────────────────────────────
+   ORDERED LISTS (Core Philosophical Thread)
+   ───────────────────────────────────────────── */
+
+.md-typeset ol li,
+.md-typeset ul li {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: var(--vu-prose-size);
+  line-height: var(--vu-prose-lh);
+  margin-bottom: 0.4rem;
+  color: var(--vu-text);
+}
+
+.md-typeset ol li strong,
+.md-typeset ul li strong {
+  font-family: inherit;
+  font-weight: 700;
+  color: var(--vu-text);
+}
+
+/* ─────────────────────────────────────────────
+   ITALIC LABELS in Anvaya
+   "As written:" / "Anvaya:" / "Note:"
+   ───────────────────────────────────────────── */
+
+.md-typeset p > em:first-child {
+  font-style: normal;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--vu-text-label);
+  margin-right: 0.3rem;
+}
+
+/* ─────────────────────────────────────────────
+   BOLD SOURCE LABELS
+   **[Opening question — pūrvapakṣa:]** etc.
+   ───────────────────────────────────────────── */
+
+.md-typeset p > strong:first-child {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vu-text-label);
+}
+
+/* ─────────────────────────────────────────────
+   PRINT
+   ───────────────────────────────────────────── */
+
+@media print {
+  .md-typeset blockquote {
+    border-left-color: #999 !important;
+    background: #f9f9f9 !important;
+    break-inside: avoid;
   }
 
-  .md-typeset blockquote {
-
-    padding: 1rem;
+  .md-typeset h2,
+  .md-typeset h3,
+  .md-typeset h4 {
+    break-after: avoid;
   }
 
   .md-typeset table {
+    break-inside: avoid;
+  }
+}
 
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  :root {
+    --vu-sanskrit-size: 1rem;
+    --vu-w2w-size:      0.85rem;
+    --vu-prose-size:    1rem;
+  }
+
+  .md-typeset blockquote {
+    padding: 0.8rem 1rem !important;
+  }
+
+  .md-typeset table {
     display: block;
     overflow-x: auto;
   }
+
+  .md-typeset table tbody tr td:nth-child(2) {
+    white-space: normal;
+  }
 }
+
+/* ─────────────────────────────────────────────
+   AUTO-DETECT WORD-TO-WORD PARAGRAPHS
+   Add this small <script> block to your
+   docs/overrides/main.html if you use theme
+   overrides, OR add it to any custom JS file.
+
+   It scans every <p> for the · separator and
+   adds the .w2w class automatically — so you
+   do not need to manually tag paragraphs.
+
+   Paste into docs/overrides/main.html:
+
+   {% block scripts %}
+     {{ super() }}
+     <script>
+       document.addEventListener("DOMContentLoaded", function () {
+         document.querySelectorAll(".md-typeset p").forEach(function (p) {
+           if (p.textContent.includes(" · ") && p.textContent.includes(" — ")) {
+             p.classList.add("w2w");
+           }
+         });
+       });
+     </script>
+   {% endblock %}
+
+   ───────────────────────────────────────────── */
