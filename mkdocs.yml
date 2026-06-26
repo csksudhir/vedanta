@@ -30,6 +30,8 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+custom_dir: docs/overrides
+
 validation:
   nav:
     omitted_files: ignore
@@ -50,9 +52,9 @@ nav:
 
           - Adhyaya 2:
               - Overview: upanishads/katha-bhashyam/2-adhyaya/index.md
-              - Valli 1: upanishads/katha-bhashyam/2-adhyaya/1-valli/index.md
-              - Valli 2: upanishads/katha-bhashyam/2-adhyaya/2-valli/index.md
-              - Valli 3: upanishads/katha-bhashyam/2-adhyaya/3-valli/index.md
+              - Valli 4: upanishads/katha-bhashyam/2-adhyaya/4-valli/index.md
+              - Valli 5: upanishads/katha-bhashyam/2-adhyaya/5-valli/index.md
+              - Valli 6: upanishads/katha-bhashyam/2-adhyaya/6-valli/index.md
 
       - Mundaka Bhashyam:
           - Overview: upanishads/mundaka-bhashyam/index.md

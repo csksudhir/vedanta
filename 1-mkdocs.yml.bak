@@ -1,0 +1,82 @@
+site_name: Vedanta
+
+theme:
+  name: material
+  language: en
+
+  font:
+    text: Noto Serif
+    code: JetBrains Mono
+
+  features:
+    - navigation.sections
+    - search.highlight
+
+  palette:
+    - scheme: default
+      primary: deep orange
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+
+    - scheme: slate
+      primary: deep orange
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+
+extra_css:
+  - stylesheets/extra.css
+
+validation:
+  nav:
+    omitted_files: ignore
+
+nav:
+  - Home: index.md
+
+  - Upanishads:
+
+      - Katha Bhashyam:
+          - Overview: upanishads/katha-bhashyam/index.md
+
+          - Adhyaya 1:
+              - Overview: upanishads/katha-bhashyam/1-adhyaya/index.md
+              - Valli 1: upanishads/katha-bhashyam/1-adhyaya/1-valli/index.md
+              - Valli 2: upanishads/katha-bhashyam/1-adhyaya/2-valli/index.md
+              - Valli 3: upanishads/katha-bhashyam/1-adhyaya/3-valli/index.md
+
+          - Adhyaya 2:
+              - Overview: upanishads/katha-bhashyam/2-adhyaya/index.md
+              - Valli 4: upanishads/katha-bhashyam/2-adhyaya/4-valli/index.md
+              - Valli 5: upanishads/katha-bhashyam/2-adhyaya/5-valli/index.md
+              - Valli 6: upanishads/katha-bhashyam/2-adhyaya/6-valli/index.md
+
+      - Mundaka Bhashyam:
+          - Overview: upanishads/mundaka-bhashyam/index.md
+
+          - Mundakam 1:
+              - Overview: upanishads/mundaka-bhashyam/1-mundakam/index.md
+              - Khanda 1: upanishads/mundaka-bhashyam/1-mundakam/1-khanda/index.md
+              - Khanda 2: upanishads/mundaka-bhashyam/1-mundakam/2-khanda/index.md
+
+          - Mundakam 2:
+              - Overview: upanishads/mundaka-bhashyam/2-mundakam/index.md
+              - Khanda 1: upanishads/mundaka-bhashyam/2-mundakam/1-khanda/index.md
+              - Khanda 2: upanishads/mundaka-bhashyam/2-mundakam/2-khanda/index.md
+
+          - Mundakam 3:
+              - Overview: upanishads/mundaka-bhashyam/3-mundakam/index.md
+              - Khanda 1: upanishads/mundaka-bhashyam/3-mundakam/1-khanda/index.md
+              - Khanda 2: upanishads/mundaka-bhashyam/3-mundakam/2-khanda/index.md
+
+      - Prashna Bhashyam:
+          - Overview: upanishads/prashna-bhashyam/index.md
+          - Prashna 1: upanishads/prashna-bhashyam/1-prashna/index.md
+          - Prashna 2: upanishads/prashna-bhashyam/2-prashna/index.md
+          - Prashna 3: upanishads/prashna-bhashyam/3-prashna/index.md
+          - Prashna 4: upanishads/prashna-bhashyam/4-prashna/index.md
+          - Prashna 5: upanishads/prashna-bhashyam/5-prashna/index.md
+          - Prashna 6: upanishads/prashna-bhashyam/6-prashna/index.md

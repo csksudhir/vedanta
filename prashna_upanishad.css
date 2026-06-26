@@ -1,0 +1,586 @@
+/*
+ * prashna_upanishad.css
+ * Stylesheet for Praśna Upaniṣad commentarial study files
+ * Designed for GitDocs / GitHub Pages / Jekyll / MkDocs
+ *
+ * Covers: Mūla, Bhāṣya, Ṭīkā sections
+ * Elements: headings, blockquotes (Sanskrit text), word-to-word paragraphs,
+ *           overall translation, anvaya, summary table, hr dividers
+ *
+ * Usage:
+ *   GitDocs:      place in docs/ and reference in _config.yml or custom.css
+ *   MkDocs:       add to docs/stylesheets/ and reference in mkdocs.yml
+ *   GitHub Pages: add to assets/css/ and reference in _layouts/default.html
+ *   Standalone:   link directly in your HTML wrapper
+ */
+
+/* ─────────────────────────────────────────────
+   FONTS
+   ───────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Kannada:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;500&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap');
+
+/*
+ * Noto Serif Kannada  — for all Kannada/Sanskrit text in blockquotes
+ * Noto Sans Kannada   — for Kannada text in word-to-word sections
+ * Crimson Pro         — for body prose (translations, notes)
+ * Source Sans 3       — for headings, labels, table headers
+ */
+
+/* ─────────────────────────────────────────────
+   ROOT TOKENS
+   ───────────────────────────────────────────── */
+
+:root {
+  /* Palette — warm parchment feel */
+  --color-bg:             #faf8f4;
+  --color-surface:        #f4f0e8;
+  --color-border:         #d6cbb8;
+  --color-border-light:   #e8e0d0;
+
+  /* Section accent colours */
+  --color-mula:           #7b3f00;   /* deep saffron-brown for Mūla */
+  --color-mula-bg:        #fff8f0;
+  --color-mula-border:    #c8763a;
+
+  --color-bhashya:        #1a3a5c;   /* deep indigo for Bhāṣya */
+  --color-bhashya-bg:     #f0f4fa;
+  --color-bhashya-border: #4a7ab5;
+
+  --color-tika:           #2d5a2d;   /* forest green for Ṭīkā */
+  --color-tika-bg:        #f0f6f0;
+  --color-tika-border:    #5a9a5a;
+
+  --color-anvaya:         #4a3060;   /* purple for Anvaya */
+  --color-anvaya-bg:      #f5f0fa;
+  --color-anvaya-border:  #9a7abf;
+
+  /* Typography */
+  --color-text:           #2c2416;
+  --color-text-muted:     #6b5d48;
+  --color-text-label:     #8a7560;
+  --color-heading:        #1a1208;
+  --color-link:           #7b3f00;
+
+  /* Sizing */
+  --font-size-base:       18px;
+  --font-size-sm:         15px;
+  --font-size-xs:         13px;
+  --font-size-sanskrit:   19px;      /* slightly larger for Kannada script */
+  --line-height-base:     1.85;
+  --line-height-sanskrit: 2.2;       /* generous leading for Kannada glyphs */
+  --line-height-w2w:      2.0;
+
+  --max-width:            820px;
+  --spacing-section:      3rem;
+  --spacing-block:        1.5rem;
+  --spacing-tight:        0.75rem;
+
+  --radius:               4px;
+  --radius-lg:            8px;
+}
+
+/* ─────────────────────────────────────────────
+   BASE
+   ───────────────────────────────────────────── */
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+.markdown-body,
+article,
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ─────────────────────────────────────────────
+   HEADINGS
+   ───────────────────────────────────────────── */
+
+h1, h2, h3, h4 {
+  font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+  color: var(--color-heading);
+  margin-top: var(--spacing-section);
+  margin-bottom: var(--spacing-tight);
+  line-height: 1.3;
+}
+
+/* File title — dual-line Kannada + Roman */
+h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.4rem;
+  margin-top: 0;
+  /* First h1 is Kannada title, second is Roman — style them together */
+}
+
+h1 + h1 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  border-bottom: none;
+  margin-top: -1.2rem;
+  padding-bottom: 0;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+/* Section headers — Mūla / Bhāṣya / Ṭīkā */
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  margin-top: var(--spacing-section);
+}
+
+/* Default h2 colour */
+h2 {
+  color: var(--color-text-label);
+  border-left: 4px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+/* Sub-section headers */
+h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-label);
+  margin-top: var(--spacing-block);
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: var(--spacing-block);
+}
+
+/* ─────────────────────────────────────────────
+   SECTION COLOUR THEMING
+   Applied by detecting h2 content via sibling rules
+   and by wrapping sections in divs if your processor supports it.
+   These classes can be applied by a Jekyll/MkDocs plugin or manually.
+   ───────────────────────────────────────────── */
+
+/* Mūla section */
+.section-mula h2,
+h2:has(+ * blockquote.mula) {
+  color: var(--color-mula);
+  border-left-color: var(--color-mula-border);
+  background: var(--color-mula-bg);
+}
+
+/* Bhāṣya section */
+.section-bhashya h2 {
+  color: var(--color-bhashya);
+  border-left-color: var(--color-bhashya-border);
+  background: var(--color-bhashya-bg);
+}
+
+/* Ṭīkā section */
+.section-tika h2 {
+  color: var(--color-tika);
+  border-left-color: var(--color-tika-border);
+  background: var(--color-tika-bg);
+}
+
+/* Anvaya sub-section */
+h3:contains("Anvaya"),
+.anvaya h3 {
+  color: var(--color-anvaya);
+}
+
+/* ─────────────────────────────────────────────
+   BLOCKQUOTES — Sanskrit text passages
+   ───────────────────────────────────────────── */
+
+blockquote {
+  font-family: 'Noto Serif Kannada', serif;
+  font-size: var(--font-size-sanskrit);
+  line-height: var(--line-height-sanskrit);
+  color: var(--color-text);
+
+  margin: var(--spacing-block) 0;
+  padding: 1.2rem 1.6rem;
+
+  background: var(--color-surface);
+  border-left: 5px solid var(--color-mula-border);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+
+  /* Each blockquote paragraph is a sentence — give them breathing room */
+}
+
+blockquote p {
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* The । and ॥ punctuation — slightly muted */
+blockquote p::after {
+  color: var(--color-text-muted);
+}
+
+/* Source metadata blockquote at top of file — smaller, muted */
+blockquote:first-of-type {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: var(--font-size-sm);
+  font-style: normal;
+  color: var(--color-text-muted);
+  background: transparent;
+  border-left: 3px solid var(--color-border);
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  margin-bottom: var(--spacing-block);
+}
+
+/* Anvaya blockquotes — purple accent */
+.anvaya blockquote,
+h4 + blockquote {
+  border-left-color: var(--color-anvaya-border);
+  background: var(--color-anvaya-bg);
+}
+
+/* ─────────────────────────────────────────────
+   WORD-TO-WORD PARAGRAPHS
+   ───────────────────────────────────────────── */
+
+/*
+ * Word-to-word paragraphs are plain <p> elements (not inside blockquotes)
+ * that follow a ### Word-to-Word heading.
+ * Each paragraph is one sentence, ending in । or ॥
+ */
+
+h3 + p,
+h3 ~ p {
+  font-family: 'Noto Sans Kannada', 'Noto Serif Kannada', sans-serif;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-w2w);
+  color: var(--color-text);
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius);
+
+  padding: 0.7rem 1rem;
+  margin: 0.4rem 0;
+}
+
+/* The · separator between word pairs — muted */
+h3 ~ p {
+  /* word — meaning pairs separated visually */
+}
+
+/* Reset for paragraphs under Overall Translation — these should be prose */
+h3:contains("Overall Translation") ~ p,
+h3:contains("Translation") + p,
+h3:contains("Translation") ~ p {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-tight) 0;
+}
+
+/* ─────────────────────────────────────────────
+   OVERALL TRANSLATION SECTION
+   ───────────────────────────────────────────── */
+
+.translation p,
+h3.translation + p {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-tight);
+}
+
+/* Bold markers like [Opening question] */
+p strong {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-label);
+}
+
+/* ─────────────────────────────────────────────
+   HORIZONTAL RULES — section dividers
+   ───────────────────────────────────────────── */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--spacing-section) 0;
+}
+
+/* ─────────────────────────────────────────────
+   SUMMARY TABLE
+   ───────────────────────────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: var(--font-size-sm);
+  margin: var(--spacing-block) 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+thead {
+  background: var(--color-surface);
+}
+
+thead th {
+  text-align: left;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-label);
+  border-bottom: 2px solid var(--color-border);
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(odd) {
+  background: var(--color-bg);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-surface);
+}
+
+tbody td {
+  padding: 0.75rem 1rem;
+  vertical-align: top;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* First column — text name (Mūla / Bhāṣya / Ṭīkā) */
+tbody td:first-child {
+  font-family: 'Noto Serif Kannada', serif;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--color-heading);
+}
+
+/* Second column — author */
+tbody td:nth-child(2) {
+  font-style: italic;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Third column — function description */
+tbody td:last-child {
+  font-size: var(--font-size-sm);
+}
+
+/* ─────────────────────────────────────────────
+   ORDERED / UNORDERED LISTS (Core Philosophical Thread)
+   ───────────────────────────────────────────── */
+
+ol, ul {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  margin: var(--spacing-tight) 0;
+  padding-left: 1.8rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+li strong {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+/* ─────────────────────────────────────────────
+   INLINE ELEMENTS
+   ───────────────────────────────────────────── */
+
+/* Italics — used for "as written" / "anvaya" labels */
+em {
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+/* Code — not typically used but included for completeness */
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85em;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 3px;
+  padding: 0.1em 0.4em;
+  color: var(--color-text);
+}
+
+/* Links */
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--color-mula);
+}
+
+/* ─────────────────────────────────────────────
+   ANVAYA SECTION
+   ───────────────────────────────────────────── */
+
+/* Bold sentence labels like "Sentence 1 — ..." */
+h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-anvaya);
+  border-bottom: 1px dotted var(--color-anvaya-border);
+  padding-bottom: 0.2rem;
+  margin-top: 2rem;
+}
+
+/* Italic labels "As written:" / "Anvaya:" / "English:" / "Note:" */
+p > em:first-child {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-text-label);
+  display: inline-block;
+  margin-right: 0.4rem;
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  :root {
+    --font-size-base:     16px;
+    --font-size-sanskrit: 17px;
+    --font-size-sm:       14px;
+    --spacing-section:    2rem;
+  }
+
+  blockquote {
+    padding: 0.9rem 1rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  table {
+    font-size: var(--font-size-xs);
+    display: block;
+    overflow-x: auto;
+  }
+
+  tbody td:nth-child(2) {
+    white-space: normal;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   PRINT
+   ───────────────────────────────────────────── */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-size: 11pt;
+  }
+
+  blockquote {
+    border-left-color: #999;
+    background: #f9f9f9;
+    break-inside: avoid;
+  }
+
+  h2, h3, h4 {
+    break-after: avoid;
+  }
+
+  table {
+    break-inside: avoid;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   MKDOCS / GITHUB PAGES OVERRIDES
+   These reset some default styles that conflict
+   ───────────────────────────────────────────── */
+
+/* MkDocs Material theme overrides */
+.md-typeset blockquote {
+  font-family: 'Noto Serif Kannada', serif !important;
+  font-size: var(--font-size-sanskrit) !important;
+  line-height: var(--line-height-sanskrit) !important;
+  color: var(--color-text) !important;
+  border-left: 5px solid var(--color-mula-border) !important;
+  background: var(--color-surface) !important;
+}
+
+.md-typeset h1 { font-size: 1.6rem !important; }
+.md-typeset h2 { font-size: 1.25rem !important; }
+.md-typeset h3 { font-size: 0.95rem !important; }
+
+/* GitHub Pages / Minima theme overrides */
+.post-content blockquote,
+.page-content blockquote {
+  font-family: 'Noto Serif Kannada', serif;
+  font-size: var(--font-size-sanskrit);
+  line-height: var(--line-height-sanskrit);
+  border-left: 5px solid var(--color-mula-border);
+  background: var(--color-surface);
+  padding: 1rem 1.4rem;
+  color: var(--color-text);
+}
